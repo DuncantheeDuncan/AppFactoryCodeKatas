@@ -35,6 +35,11 @@
   - that will store 0's and 1's
 
 
+https://www.youtube.com/watch?v=vj9nDja8ZdQ
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+
+https://p5js.org/get-started/
   */
 
 
@@ -138,5 +143,7 @@
 
     sum -= grid[x][y]; // exclude the current cell from the sum
     return sum;
+
+    
   }
 
