@@ -7,7 +7,6 @@ lib/out
 .classpath
 .project
 .settings
-koans/app/data
 lib/file-compiler/bin
 **/file_hashes.dat
 .gradle
