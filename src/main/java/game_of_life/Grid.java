@@ -7,7 +7,7 @@ class Grid {
 
     int yAxis = 3;
     int xAxis = 5;
-    // grid can be given state
+
 
     public int left() {
 
@@ -59,12 +59,12 @@ class Grid {
 
                 int neighbours = 0; // FIXME: 2020/10/20 how to calculate neighbours?
 
-                if (value == 0 && neighbours == 3){
+                if (value == 0 && neighbours == 3) {
 
                     nextGrid[i][j] = 1;
-                }else if (value == 1 && (neighbours <2 || neighbours >3)){
-                    nextGrid[i][j] =0;
-                }else {
+                } else if (value == 1 && (neighbours < 2 || neighbours > 3)) {
+                    nextGrid[i][j] = 0;
+                } else {
                     nextGrid[i][j] = value;
                 }
 
@@ -75,14 +75,31 @@ class Grid {
     }
 
 
+    int[][] assignState = {{4, 3},{5,3},{2,4},{2,2}};
 
     public void printBoard() {
         int incr = 0;
+
+        int xux = assignState[0][0] = 50;
+        System.out.println("uhu " + xux);
         for (int r = 0; r < grid.length; r++) {
             StringBuilder line = new StringBuilder();
 
             for (int c = 0; c < grid.length; c++) {
-                line.append("[").append(grid[c][r]).append("]");
+
+
+                for (int d=0;d<assignState.length;d++){
+                    for (int e=0 ;e<assignState[d].length;e++) {
+                        System.out.println(d +" - "+e);
+
+                    }
+                }
+
+//                if ()
+
+                    grid[c][r] = (int) Math.floor(Math.random() * 2);// assign specific values
+//                grid[c][r] = (int) Math.floor(Math.random() * 2);// assigns random numbers
+                line.append("[").append(grid[c][r]).append("]");// assign empty arrays
             }
             System.out.println("col" + incr + " " + line);
             incr++;
@@ -99,15 +116,15 @@ class Grid {
         for (int y = 0; y < grid.length; y++) {
             for (int x = 0; x < grid[y].length; x++) {
 
-                board.getNextGen(grid);
+//                board.getNextGen(grid);
 
                 if (y == xAndY.yAxis & x == xAndY.xAxis) {
 //
 //                    // starting point
                     grid[x][y] = 1;
-                    System.out.println("position "+ grid[x][y]);
+                    System.out.println("position " + grid[x][y]);
 //
-                    board.left();
+                    System.out.println("left" + board.left());
 //
                     board.topLeft();
 //
