@@ -75,79 +75,64 @@ class Grid {
     }
 
 
-    int[][] assignState = {{4, 3},{5,3},{2,4},{2,2}};
+    int[][] assignState = {{4, 3}, {4, 4}, {4, 2},{5, 4}};
+
 
     public void printBoard() {
-        int incr = 0;
+        int increment = 0;
 
-        int xux = assignState[0][0] = 50;
-        System.out.println("uhu " + xux);
         for (int r = 0; r < grid.length; r++) {
             StringBuilder line = new StringBuilder();
+            for (int[] ints : grid) {
 
-            for (int c = 0; c < grid.length; c++) {
-
-
-                for (int d=0;d<assignState.length;d++){
-                    for (int e=0 ;e<assignState[d].length;e++) {
-                        System.out.println(d +" - "+e);
-
-                    }
-                }
-
-//                if ()
-
-                    grid[c][r] = (int) Math.floor(Math.random() * 2);// assign specific values
-//                grid[c][r] = (int) Math.floor(Math.random() * 2);// assigns random numbers
-                line.append("[").append(grid[c][r]).append("]");// assign empty arrays
+                line.append("[").append(ints[r]).append("]");// assign empty arrays
             }
-            System.out.println("col" + incr + " " + line);
-            incr++;
+
+            System.out.println("col" + increment + " " + line);
+            increment++;
         }
     }
 
+
     public static void main(String[] args) {
 
-
-        Grid xAndY = new Grid();
         Grid board = new Grid();
-
 
         for (int y = 0; y < grid.length; y++) {
             for (int x = 0; x < grid[y].length; x++) {
 
-//                board.getNextGen(grid);
+                int count = 0, getX = 0, getY = 0;
 
-                if (y == xAndY.yAxis & x == xAndY.xAxis) {
-//
-//                    // starting point
-                    grid[x][y] = 1;
-                    System.out.println("position " + grid[x][y]);
-//
-                    System.out.println("left" + board.left());
-//
-                    board.topLeft();
-//
-                    board.top();
-//
+                for (int d = 0; d < board.assignState.length; d++) {
+                    for (int e = 0; e < board.assignState[d].length; e++) {
+                        count++;
+
+                        if (count == 1) {
+                            getX = board.assignState[d][e];
+                        } else if (count == 2) {
+                            getY = board.assignState[d][e];
+                            count = 0;
+                            break;
+                        }
+                    }
+
+                    if (y == getY & x == getX) grid[x][y] = 1; // grid starts counting from 0
+
+                    // TODO: 2020/10/21  count the neighbours for each cell
+
+//                    board.left();
+//                    board.topLeft();
+//                    board.top();
+
+
                 }
-//                else {
-//                    grid[x][y] = 0;
-//
-//                }
-//
-
             }
 
-            board.right();
-
-            board.topRight();
-
-            board.bottomRight();
-
-            board.bottom();
-
-            board.bottomLeft();
+//            board.right();
+//            board.topRight();
+//            board.bottomRight();
+//            board.bottom();
+//            board.bottomLeft();
 
         }
 
