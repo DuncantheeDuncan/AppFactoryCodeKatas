@@ -10,82 +10,56 @@ class Grid {
 
 //    int x, y;
 
-    public int left(int x, int y, int[][] grid) {
-
+    public int left(int x, int y, int xSize, int ySize, int[][] grid) {
 
 //        System.out.println("left cell " + grid[x - 1][y]);
-        return grid[x - 1][y];
+        return grid[mod(x - 1, xSize)][mod(y, ySize)];
     }
 
-    public int top(int x, int y, int[][] grid) {
+    public int top(int x, int y, int xSize, int ySize, int[][] grid) {
 
 //        System.out.println("top cell " + grid[x][y - 1]);
-        return grid[x][y - 1];
+        return grid[mod(x, xSize)][mod(y - 1, ySize)];
     }
 
+    public static int mod(int x, int m) {
+        m = Math.abs(m);
+        return (x % m + m) % m;
+    }
 
-    public int topLeft(int x, int y, int[][] grid) {
+    public int topLeft(int x, int y, int xSize, int ySize, int[][] grid) {
 
 //        System.out.println("top left "+ grid[x -1][y-1]);
-        return grid[x - 1][y - 1];
+        return grid[mod(x - 1, xSize)][mod(y - 1, ySize)];
     }
 
 
-    public int right(int x, int y, int[][] grid) {
+    public int right(int x, int y, int xSize, int ySize, int[][] grid) {
 
 //        System.out.println("right "+ grid[x +1][y]);
-        return grid[x + 1][y];
+        return grid[mod(x + 1, xSize)][mod(y, ySize)];
     }
 
-    public int topRight(int x, int y, int[][] grid) {
+    public int topRight(int x, int y, int xSize, int ySize, int[][] grid) {
 
 //        System.out.println("top right "+ grid[x +1][y -1]);
-        return grid[x + 1][y - 1];
+        return grid[mod(x + 1, xSize)][mod(y - 1, ySize)];
     }
 
-    public int bottomRight(int x, int y, int[][] grid) {
+    public int bottomRight(int x, int y, int xSize, int ySize, int[][] grid) {
 //        System.out.println("bottom right "+grid[x +1][y +1]);
-        return grid[x + 1][y + 1];
+        return grid[mod(x + 1, xSize)][mod(y + 1, ySize)];
     }
 
-    public int bottom(int x, int y, int[][] grid) {
+    public int bottom(int x, int y, int xSize, int ySize, int[][] grid) {
 //        System.out.println("bottom "+grid[x][y +1]);
-        return grid[x][y + 1];
+        return grid[mod(x, xSize)][mod(y + 1, ySize)];
     }
 
-    public int bottomLeft(int x, int y, int[][] grid) {
+    public int bottomLeft(int x, int y, int xSize, int ySize, int[][] grid) {
 //        System.out.println("bottom left "+ grid[x -1][y +1]);
 
-        return grid[x - 1][y + 1];
-    }
-
-    public int[][] getNextGen(int[][] grid) {
-
-        int[][] nextGrid = new int[grid.length][];
-
-
-        for (int i = 0; i < grid.length; i++) {
-            nextGrid[i] = new int[grid.length];
-
-            for (int j = 0; j < grid.length; j++) {
-                int value = grid[i][j];// current value
-
-                System.out.println("current value " + value);
-                int neighbours = 0; // FIXME: 2020/10/20 how to calculate neighbours?
-
-                if (value == 70 && neighbours == 3) {
-
-                    nextGrid[i][j] = 1;
-                } else if (value == 1 && (neighbours < 2 || neighbours > 3)) {
-                    nextGrid[i][j] = 0;
-                } else {
-                    nextGrid[i][j] = value;
-                }
-
-            }
-        }
-
-        return nextGrid;
+        return grid[mod(x - 1, xSize)][mod(y + 1, ySize)];
     }
 
 
@@ -166,48 +140,47 @@ class Grid {
         //     -  assign that value to neighbours to know how many are there
         //     -  execute the rules (conways rules)
 
-        int temp = 0;
+
         int[][] nextGrid = new int[grid.length][];
 
         for (int i = 0; i < grid.length; i++) {
             nextGrid[i] = grid[i].clone();
         }
 
-        for (int y = 0; y < grid.length; y++) {
-            for (int x = 0; x < grid[y].length; x++) {
+        // run n times
+        for (int run = 0; run < 3; run++) {// running n
 
-                int currentCell = grid[y][x];
+            for (int y = 0; y < grid.length; y++) {
+                for (int x = 0; x < grid[y].length; x++) {
+
+                    int currentCell = grid[y][x];
 
 
-                if (grid[y][x] == 1) {// - for testing
-//                    temp++;
-//                    if (temp < 2) {
+                    int xSize = grid.length;
+                    int ySize = grid[y].length;
 
 
                     System.out.println("cell " + grid[y][x]
-                            + " -> top " + board.top(y, x, grid) + ":"
-                            + " -> left " + board.left(y, x, grid) + ":"
-                            + " -> bottom " + board.bottom(y, x, grid) + ":"
-                            + " ->  bL " + board.bottomLeft(y, x, grid) + ":"
-                            + " -> BR " + board.bottomRight(y, x, grid) + ":"
-                            + " -> right " + board.right(y, x, grid) + ":"
-                            + " -> TL" + board.topLeft(y, x, grid) + ":"
-                            + " -> TR" + board.topRight(y, x, grid) + ":"
+                            + " -> top " + board.top(y, x, xSize, ySize, grid) + ":"
+                            + " -> left " + board.left(y, x, xSize, ySize, grid) + ":"
+                            + " -> bottom " + board.bottom(y, x, xSize, ySize, grid) + ":"
+                            + " ->  bL " + board.bottomLeft(y, x, xSize, ySize, grid) + ":"
+                            + " -> BR " + board.bottomRight(y, x, xSize, ySize, grid) + ":"
+                            + " -> right " + board.right(y, x, xSize, ySize, grid) + ":" +
+                            " -> TL" + board.topLeft(y, x, xSize, ySize, grid) + ":"
+                            + " -> TR" + board.topRight(y, x, xSize, ySize, grid) + ":"
                     );
-//
+
+
                     int neighbours = checkNeighbours(
-                            // TODO: 2020/10/22
-                            //  - need to implement "wrapping" in oder to move this method on top
-
-                            board.right(y, x, grid),
-                            board.left(y, x, grid),
-                            board.top(y, x, grid),
-                            board.bottom(y, x, grid),
-                            board.topRight(y, x, grid),
-                            board.topLeft(y, x, grid),
-                            board.bottomRight(y, x, grid),
-                            board.bottomLeft(y, x, grid)
-
+                            board.right(y, x, xSize, ySize, grid),
+                            board.left(y, x, xSize, ySize, grid),
+                            board.top(y, x, xSize, ySize, grid),
+                            board.bottom(y, x, xSize, ySize, grid),
+                            board.topRight(y, x, xSize, ySize, grid),
+                            board.topLeft(y, x, xSize, ySize, grid),
+                            board.bottomRight(y, x, xSize, ySize, grid),
+                            board.bottomLeft(y, x, xSize, ySize, grid)
                     );
 
 
@@ -219,23 +192,20 @@ class Grid {
                     } else {
                         nextGrid[y][x] = currentCell;
                     }
-
                 }
-//Todo do not delete                System.out.println(board.getNextGen(grid));
-
             }
+
+            // copying to the updated grid to the main board
+            for (int i = 0; i < nextGrid.length; i++) {
+
+                grid[i] = nextGrid[i].clone();
+            }
+
+            System.out.println("no. of alive cells " + aliveCells);
+
+            System.out.println("------------------------------------------\n\n\n");
+            board.printBoard();
         }
-
-        // copying to the updated grid to the main board
-        for (int i = 0; i < nextGrid.length; i++) {
-
-            grid[i] = nextGrid[i].clone();
-        }
-
-        System.out.println("no. of alive cells " + aliveCells);
-
-        System.out.println("------------------------------------------\n\n\n");
-        board.printBoard();
 
     }
 }
