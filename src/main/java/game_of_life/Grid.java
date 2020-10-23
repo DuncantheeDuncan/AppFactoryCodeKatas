@@ -19,6 +19,7 @@ class Grid {
     public int top(int x, int y, int xSize, int ySize, int[][] grid) {
 
 //        System.out.println("top cell " + grid[x][y - 1]);
+
         return grid[mod(x, xSize)][mod(y - 1, ySize)];
     }
 
@@ -28,6 +29,7 @@ class Grid {
     }
 
     public int topLeft(int x, int y, int xSize, int ySize, int[][] grid) {
+
 
 //        System.out.println("top left "+ grid[x -1][y-1]);
         return grid[mod(x - 1, xSize)][mod(y - 1, ySize)];
@@ -64,6 +66,7 @@ class Grid {
 
 
     int[][] assignState = {{4, 3}, {4, 4}, {4, 2}, {5, 4}};
+    //tell users what it prints out
 
 
     public void printBoard() {
@@ -160,16 +163,16 @@ class Grid {
                     int ySize = grid[y].length;
 
 
-                    System.out.println("cell " + grid[y][x]
-                            + " -> top " + board.top(y, x, xSize, ySize, grid) + ":"
-                            + " -> left " + board.left(y, x, xSize, ySize, grid) + ":"
-                            + " -> bottom " + board.bottom(y, x, xSize, ySize, grid) + ":"
-                            + " ->  bL " + board.bottomLeft(y, x, xSize, ySize, grid) + ":"
-                            + " -> BR " + board.bottomRight(y, x, xSize, ySize, grid) + ":"
-                            + " -> right " + board.right(y, x, xSize, ySize, grid) + ":" +
-                            " -> TL" + board.topLeft(y, x, xSize, ySize, grid) + ":"
-                            + " -> TR" + board.topRight(y, x, xSize, ySize, grid) + ":"
-                    );
+                    // System.out.println("cell " + grid[y][x]
+                    //         + " -> top " + board.top(y, x, xSize, ySize, grid) + ":"
+                    //         + " -> left " + board.left(y, x, xSize, ySize, grid) + ":"
+                    //         + " -> bottom " + board.bottom(y, x, xSize, ySize, grid) + ":"
+                    //         + " ->  bL " + board.bottomLeft(y, x, xSize, ySize, grid) + ":"
+                    //         + " -> BR " + board.bottomRight(y, x, xSize, ySize, grid) + ":"
+                    //         + " -> right " + board.right(y, x, xSize, ySize, grid) + ":" +
+                    //         " -> TL" + board.topLeft(y, x, xSize, ySize, grid) + ":"
+                    //         + " -> TR" + board.topRight(y, x, xSize, ySize, grid) + ":"
+                    // );
 
 
                     int neighbours = checkNeighbours(
