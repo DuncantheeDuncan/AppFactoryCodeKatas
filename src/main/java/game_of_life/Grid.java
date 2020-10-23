@@ -5,21 +5,12 @@ class Grid {
 
     public static int[][] grid = new int[8][8];
 
-//    int yAxis = 3;
-//    int xAxis = 5;
-
-//    int x, y;
 
     public int left(int x, int y, int xSize, int ySize, int[][] grid) {
-
-//        System.out.println("left cell " + grid[x - 1][y]);
         return grid[mod(x - 1, xSize)][mod(y, ySize)];
     }
 
     public int top(int x, int y, int xSize, int ySize, int[][] grid) {
-
-//        System.out.println("top cell " + grid[x][y - 1]);
-
         return grid[mod(x, xSize)][mod(y - 1, ySize)];
     }
 
@@ -29,44 +20,36 @@ class Grid {
     }
 
     public int topLeft(int x, int y, int xSize, int ySize, int[][] grid) {
-
-
-//        System.out.println("top left "+ grid[x -1][y-1]);
         return grid[mod(x - 1, xSize)][mod(y - 1, ySize)];
     }
 
 
     public int right(int x, int y, int xSize, int ySize, int[][] grid) {
-
-//        System.out.println("right "+ grid[x +1][y]);
         return grid[mod(x + 1, xSize)][mod(y, ySize)];
     }
 
     public int topRight(int x, int y, int xSize, int ySize, int[][] grid) {
-
-//        System.out.println("top right "+ grid[x +1][y -1]);
         return grid[mod(x + 1, xSize)][mod(y - 1, ySize)];
     }
 
     public int bottomRight(int x, int y, int xSize, int ySize, int[][] grid) {
-//        System.out.println("bottom right "+grid[x +1][y +1]);
         return grid[mod(x + 1, xSize)][mod(y + 1, ySize)];
     }
 
     public int bottom(int x, int y, int xSize, int ySize, int[][] grid) {
-//        System.out.println("bottom "+grid[x][y +1]);
         return grid[mod(x, xSize)][mod(y + 1, ySize)];
     }
 
     public int bottomLeft(int x, int y, int xSize, int ySize, int[][] grid) {
-//        System.out.println("bottom left "+ grid[x -1][y +1]);
 
         return grid[mod(x - 1, xSize)][mod(y + 1, ySize)];
     }
 
 
     int[][] assignState = {{4, 3}, {4, 4}, {4, 2}, {5, 4}};
-    //tell users what it prints out
+    // have presets states for users to chose from 
+    // have a method to able to assign state by user
+    // have a default state
 
 
     public void printBoard() {
@@ -135,13 +118,6 @@ class Grid {
         System.out.println("------------------------------------------\n\n\n");
         board.printBoard();
 
-        // TODO: 2020/10/21  count the neighbours for each cell
-        //
-        //todo -------------------------------------------------------
-        //     -  get the cell
-        //     -  check the surroundings of a cell
-        //     -  assign that value to neighbours to know how many are there
-        //     -  execute the rules (conways rules)
 
 
         int[][] nextGrid = new int[grid.length][];
