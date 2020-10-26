@@ -1,4 +1,4 @@
-package game_of_life;
+package gameOfLife;
 
 public interface Directions {
 

@@ -1,12 +1,17 @@
-package game_of_life;
+package gameOfLife;
 
-import static game_of_life.Board.grid;
+import static gameOfLife.Board.grid;
 
 public class AssignGridState {
-    int[][] assignState = {{4, 3}, {4, 4}, {4, 2}, {5, 4}};
+
+    //    private int[][] assignState = {{0, 1}, {0, 2}, {0, 3}}; // stroke |
+    private final String presetName = "lShape";
+    private int[][] assignState = Presets.valueOf(presetName).preset;
+    private int aliveCells = 0;
+
 
     public void assignGridState() {
-        int aliveCells = 0;// todo get this
+        aliveCells = 0;
         for (int y = 0; y < grid.length; y++) {
             for (int x = 0; x < grid[y].length; x++) {
 
@@ -32,5 +37,13 @@ public class AssignGridState {
                 }
             }
         }
+    }
+
+    public int getAliveCells() {
+        return aliveCells;
+    }
+
+    public void setAssignState(int[][] assignState) {
+        this.assignState = assignState;
     }
 }
