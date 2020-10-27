@@ -27,8 +27,12 @@
     - if you are not using Maven
         - locate this folder gameOfLife/Grid.java
         - you can run the app from anywhere except from the 'gameOfLife' package
-        - ~$ javac gameOfLife/Grid.java
-        - ~$ java gameOfLife.Grid
+        - Compile the application 	
+        		`$ javac gameOfLife/Grid.java`
+
+        - Run the application
+        		`$ java gameOfLife.Grid`
+      
 
 ### Creating tests
 ### Creating JAR file
