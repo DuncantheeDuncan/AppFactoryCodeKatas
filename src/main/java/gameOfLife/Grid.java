@@ -1,21 +1,23 @@
 package gameOfLife;
 
+
+
 class Grid {
 
     public  static final String TEXT_RESET = "\u001B[0m";
+    public  static final String TEXT_RED = "\u001B[31m";
     public static void main(String[] args) {
 
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("enter a number...");
-//        int j = scanner.nextInt();
-        System.out.println("co\n"+ TEXT_RESET);
+
+        System.out.println(TEXT_RED+"this text is Red? "+ TEXT_RESET);
+
+
+
 
         Board printBoard = new Board();
-
-//        System.out.println(s);
         Board board = new Board();
         AssignGridState assign = new AssignGridState();
-//        Board.setGrid(new int[4][4]); // updating the grid
+
 //        System.out.println("presets "+ Arrays.deepToString(Presets.lShape.preset));
 
 
@@ -30,6 +32,8 @@ class Grid {
 
         int runXTimes = 3;
         board.updateBoard(runXTimes);
+
+
     }
 }
 

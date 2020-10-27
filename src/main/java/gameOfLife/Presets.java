@@ -2,6 +2,7 @@ package gameOfLife;
 
 public enum Presets {
     lShape(new int[][]{{4, 3}, {4, 4}, {4, 2}, {5, 4}}),
+    stroke(new int[][]{{0, 1}, {0, 2}, {0, 3}}),
     glide(new int[][]{{4, 3}, {5, 4}, {5, 5}, {4, 5}, {3, 5}});
 
 

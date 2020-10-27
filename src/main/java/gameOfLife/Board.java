@@ -1,13 +1,19 @@
 package gameOfLife;
 
+
+
 public class Board {
 
     public static int[][] grid = new int[18][18];
     private final int[][] nextGrid = new int[grid.length][];
 
-//    public static void setGrid(int[][] grid) {
+
+
+    //    public static void setGrid(int[][] grid) {
 //        Board.grid = grid;
 //    }
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_RED = "\u001B[31m";
 
     @Override
     public String toString() {// prev print-Board
@@ -16,12 +22,22 @@ public class Board {
             line.append("\n");
             for (int i = 0, gridLength = grid.length; i < gridLength; i++) {
                 int[] ints = grid[i];
-                line.append("[").append(ints[r]).append("]");
+//                line.append("[").append(ints[r]).append("]");
+//                line.append("").append(ints[r]).append("");
+                if (ints[r] == 1) {
+                    line.append(TEXT_RED).append("[").append(ints[r]).append("]").append(TEXT_RESET);
+
+                } else {
+                    line/*.append(TEXT_RED)*/.append("[").append(ints[r]).append("]")/*.append(TEXT_RESET)*/;
+                }
             }
         }
 
-        return String.valueOf(line);
+//        String setBackFrontColor = "\033[107m\033[30m";
+        return /*setBackFrontColor +*/ String.valueOf(line);
     }
+
+
 
 
     public void updateBoard(int printXTimes) {
@@ -29,6 +45,7 @@ public class Board {
 
         for (int i = 0; i < grid.length; i++)
             nextGrid[i] = grid[i].clone();
+
 
 
         for (int print = 0; print < printXTimes; print++) {
@@ -70,8 +87,12 @@ public class Board {
 //            printBoard();
             System.out.println(toString());
 
+
         }
     }
+
+
+
 
 
 }
