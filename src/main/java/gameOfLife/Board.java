@@ -41,14 +41,14 @@ public class Board {
 
 
     public void updateBoard(int printXTimes) {
-
-
+    
+    
         for (int i = 0; i < grid.length; i++)
             nextGrid[i] = grid[i].clone();
 
 
-
         for (int print = 0; print < printXTimes; print++) {
+            
 
             for (int y = 0; y < grid.length; y++) {
                 for (int x = 0; x < grid[y].length; x++) {
@@ -85,6 +85,7 @@ public class Board {
 
             System.out.println("------------------------------------------\n\n\n");
 //            printBoard();
+            // printz++;
             System.out.println(toString());
 
 

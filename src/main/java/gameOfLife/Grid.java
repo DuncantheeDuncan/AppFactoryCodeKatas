@@ -23,14 +23,24 @@ class Grid {
 
         System.out.println("------------------------------------------\n\n\n");
 //        board.printBoard();
-        System.out.println(printBoard);
+        System.out.println("Initializing empty grid\n"+printBoard);
+        System.out.println("\nInitialized empty grid");
 
         System.out.println("------------------------------------------\n\n\n");
+        System.out.println("\nInitializing start position");
+        
         assign.assignGridState();
-//        board.printBoard();
-        System.out.println(printBoard);
 
-        int runXTimes = 3;
+        // System.out.println("\nInitialized start position");
+//        board.printBoard();
+        
+        System.out.println(printBoard);
+        
+        System.out.println("\nInitialized start position");
+        // System.out.println(board.printz +"?");
+
+
+        int runXTimes = 1;
         board.updateBoard(runXTimes);
 
 
