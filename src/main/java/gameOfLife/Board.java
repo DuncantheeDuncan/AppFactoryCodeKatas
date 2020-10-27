@@ -85,7 +85,7 @@ public class Board {
 
             System.out.println("------------------------------------------\n\n\n");
 //            printBoard();
-            // printz++;
+            System.out.println("Iteration number ("+(print+1)+")");
             System.out.println(toString());
 
 

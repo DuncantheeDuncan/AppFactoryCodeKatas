@@ -40,7 +40,7 @@ class Grid {
         // System.out.println(board.printz +"?");
 
 
-        int runXTimes = 1;
+        int runXTimes = 6;
         board.updateBoard(runXTimes);
 
 
