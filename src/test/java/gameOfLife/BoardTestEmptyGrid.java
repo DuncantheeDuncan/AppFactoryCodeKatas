@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class BoardTestEmptyGrid {
 
     Board b;
-    private  StringBuilder initialState;
+    private StringBuilder initialState;
 
 
     @BeforeEach

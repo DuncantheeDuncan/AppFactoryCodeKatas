@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static gameOfLife.Board.grid;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -14,7 +13,6 @@ public class BoardTestInitializePreset {
     Board b;
     private AssignGridState assignGridState;
     private StringBuilder firstState;
-
 
     String rmRed = "\u001B[31m";
     String rmRst = "\u001B[0m";
