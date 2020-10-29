@@ -1,54 +1,42 @@
 package gameOfLife;
 
-
-
 public class Board {
 
     public static int[][] grid = new int[18][18];
     private final int[][] nextGrid = new int[grid.length][];
-
-
-
-    //    public static void setGrid(int[][] grid) {
-//        Board.grid = grid;
-//    }
     public static final String TEXT_RESET = "\u001B[0m";
     public static final String TEXT_RED = "\u001B[31m";
 
+
     @Override
-    public String toString() {// prev print-Board
+    public String toString() {
         StringBuilder line = new StringBuilder();
         for (int r = 0; r < grid.length; r++) {
             line.append("\n");
+
             for (int i = 0, gridLength = grid.length; i < gridLength; i++) {
                 int[] ints = grid[i];
-//                line.append("[").append(ints[r]).append("]");
-//                line.append("").append(ints[r]).append("");
-                if (ints[r] == 1) {
-                    line.append(TEXT_RED).append("[").append(ints[r]).append("]").append(TEXT_RESET);
 
-                } else {
-                    line/*.append(TEXT_RED)*/.append("[").append(ints[r]).append("]")/*.append(TEXT_RESET)*/;
-                }
+                if (ints[r] == 1)
+                    line.append(TEXT_RED).append("[").append(ints[r]).append("]").append(TEXT_RESET);
+                else
+                    line.append("[").append(ints[r]).append("]");
+
             }
         }
-
-//        String setBackFrontColor = "\033[107m\033[30m";
-        return /*setBackFrontColor +*/ String.valueOf(line);
+        return String.valueOf(line);
     }
 
 
+    public String updateBoard(int printXTimes) {
 
 
-    public void updateBoard(int printXTimes) {
-    
-    
         for (int i = 0; i < grid.length; i++)
             nextGrid[i] = grid[i].clone();
 
 
         for (int print = 0; print < printXTimes; print++) {
-            
+
 
             for (int y = 0; y < grid.length; y++) {
                 for (int x = 0; x < grid[y].length; x++) {
@@ -82,18 +70,12 @@ public class Board {
             for (int i = 0; i < nextGrid.length; i++)
                 grid[i] = nextGrid[i].clone();
 
-
             System.out.println("------------------------------------------\n\n\n");
-//            printBoard();
-            System.out.println("Iteration number ("+(print+1)+")");
+            System.out.println("Iteration number (" + (print + 1) + ")");
             System.out.println(toString());
 
-
         }
+        return toString();
     }
-
-
-
-
 
 }

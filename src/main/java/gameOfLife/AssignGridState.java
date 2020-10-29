@@ -5,12 +5,13 @@ import static gameOfLife.Board.grid;
 public class AssignGridState {
 
     //    private int[][] assignState = {{0, 1}, {0, 2}, {0, 3}}; // stroke |
-    private final String presetName = "lShape";
+    private final String presetName = "L_SHAPE";
     private int[][] assignState = Presets.valueOf(presetName).preset;
     private int aliveCells = 0;
 
 
     public void assignGridState() {
+
         aliveCells = 0;
         for (int y = 0; y < grid.length; y++) {
             for (int x = 0; x < grid[y].length; x++) {

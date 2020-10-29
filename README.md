@@ -22,8 +22,8 @@
 
 ### How to run the app
 - one you repo is downloaded to your local machine
-    - if you are runing the app with maven
-        - no steps availabe yet.
+    - if you are running the app with maven
+        - no steps available yet.
     - if you are not using Maven
         - locate this folder gameOfLife/Grid.java
         - you can run the app from anywhere except from the 'gameOfLife' package
