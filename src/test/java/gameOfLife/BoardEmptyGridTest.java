@@ -42,7 +42,7 @@ public class BoardEmptyGridTest {
         );
 
         String emptyBoard = b.gridBox();
-        System.out.println(emptyBoard);
+        // System.out.println(emptyBoard);
         String initialStateOfABoard = String.valueOf(initialState);
 
         assertTrue(initialStateOfABoard.contains(emptyBoard));
