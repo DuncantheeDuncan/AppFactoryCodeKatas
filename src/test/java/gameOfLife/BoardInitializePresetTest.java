@@ -1,30 +1,34 @@
 package gameOfLife;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class BoardTestEmptyGrid {
-
-    Board b;
-    private StringBuilder initialState;
+public class BoardInitializePresetTest {
 
 
-    @BeforeEach
-    void setup() {
-        initialState = new StringBuilder();
-        b = new Board();
+    String rmRed = "\u001B[31m";
+    String rmRst = "\u001B[0m";
+    String red, reset;
 
-        initialState.append(// 18 * 18
+
+    @DisplayName("The grid should change state after initializing")
+    @Test
+    void shouldTestTheStateOfTheBoardAfterAssigningState() {
+
+        AssignGridState assignGridState = new AssignGridState();
+        Board b = new Board();
+
+
+        StringBuilder firstState = new StringBuilder();
+        firstState.append(
                 "\n[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
                         "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
-                        "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
-                        "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
-                        "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
+                        "[0][0][0][0][1][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
+                        "[0][0][0][0][1][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
+                        "[0][0][0][0][1][1][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
                         "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
                         "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
                         "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
@@ -39,23 +43,23 @@ public class BoardTestEmptyGrid {
                         "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]\n" +
                         "[0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0]"
         );
-    }
-
-    @AfterEach
-    void tearDown() {
-        initialState = null;
-        b = null;
-    }
 
 
-    @DisplayName("Should print the initial state of the grid")
-    @Test
-    void shouldTestEmptyGrid() {// TODO: 2020/10/28 fix the update method
+        assignGridState.assignGridState();
+        String initializedBoard = String.valueOf(firstState);
+        String presetL = b.gridBox();
 
-        String emptyBoard = b.toString();
-        String initialStateOfABoard = String.valueOf(initialState);
 
-        assertTrue(initialStateOfABoard.contains(emptyBoard));
-        assertEquals(emptyBoard, initialStateOfABoard);
+        if (presetL.contains(rmRed)) { // removing color elements
+
+            red = presetL.replace(rmRed, "");
+            reset = red.replace(rmRst, "");
+            presetL = reset;
+        }
+
+
+        assertEquals(presetL, initializedBoard);
+        assertTrue(presetL.contains(initializedBoard));
+
     }
 }

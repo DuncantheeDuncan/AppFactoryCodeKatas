@@ -34,5 +34,24 @@
         		`$ java gameOfLife.Grid`
       
 
-### Creating tests
-### Creating JAR file
+# TESTS
+
+## Two ways to run tests
+###  IDE wit Maven
+ - Use an IDE that support Maven
+ - If the project did not change automatically do it manually
+
+### Terminal/Command line
+    Note* you will still need maven configured on your machine
+- To run a single test from the root folder type `mvn -Dtest=BoardEmptyGridTest test`
+- To run tests from this project:
+    - `mvn -Dtest=BoardEmptyGridTest,BoardInitializePresetTest test`
+    - `mvn -Dtest=BoardTest test`
+    - `mvn -Dtest=BoardThirdGenTest test`
+- to run all those commands at once
+
+        Note* you will need to change the extention of the 
+        file if your are not using UBUNTU/LINUX i.e for windows it will be run.bash
+  - From the root folder ` ./run.sh` 
+
+

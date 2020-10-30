@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class BoardTestThirdGen {
+public class BoardThirdGenTest {
 
     String rmRed = "\u001B[31m";
     String rmRst = "\u001B[0m";

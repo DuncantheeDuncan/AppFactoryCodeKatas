@@ -8,8 +8,8 @@ public class Board {
     public static final String TEXT_RED = "\u001B[31m";
 
 
-    @Override
-    public String toString() {
+
+    public String gridBox() {
         StringBuilder line = new StringBuilder();
         for (int r = 0; r < grid.length; r++) {
             line.append("\n");
@@ -72,10 +72,10 @@ public class Board {
 
             System.out.println("------------------------------------------\n\n\n");
             System.out.println("Iteration number (" + (print + 1) + ")");
-            System.out.println(toString());
+            System.out.println(gridBox());
 
         }
-        return toString();
+        return gridBox();
     }
 
 }
