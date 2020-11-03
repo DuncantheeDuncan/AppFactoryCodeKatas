@@ -168,6 +168,7 @@ for (let rows = 0; rows < grid.length; rows++) {
 }
 
 
+
 function assignZerosToTheGrid(grid) {
 	for (let rows = 0; rows < grid.length; rows++) {
 		for (let columns = 0; columns < grid[rows].length; columns++) {
